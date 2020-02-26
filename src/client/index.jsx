@@ -36,7 +36,7 @@ class Retweets extends React.Component {
   }
 }
 
-class TweetText extends React.component {
+class TweetText extends React.Component {
   render () {
     return (
       <p className="card-text">{this.props.text}</p>
@@ -48,11 +48,13 @@ class Tweet extends React.Component {
 
   render() {
       return (
-        <div className="card">
-          <User user={this.props.tweet.user}/>
-          <TweetText text={this.props.tweet.text}/>
+        <div className="card mb-2">
           <div className="card-body">
-            <Likes likes={this.props.tweet.favorite_count}/> - <Retweets retweets={this.props.tweet.retweet_count}/>
+            <User user={this.props.tweet.user}/>
+            <TweetText text={this.props.tweet.text}/>
+          </div>
+          <div className="card-footer">
+            <Likes likes={this.props.tweet.favorite_count}/> <Retweets retweets={this.props.tweet.retweet_count}/>
           </div>
         </div>
       );

@@ -33,9 +33,14 @@ app.get('/banana', (request, response)=>{
 app.get('/react', (req, res) => {
   const myHtml = `
     <html>
+    <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
       <body>
         <h1>Wow, react</h1>
-        <div id="app"></div>
+        <div class="container">
+          <div id="app"></div>
+        </div>
         <script type="text/javascript" src="/main.js"></script>
       </body>
     </html>

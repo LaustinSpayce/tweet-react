@@ -4,13 +4,56 @@ import ReactDOM from 'react-dom';
 import tweets from 'tweets'
 console.log(tweets)
 
+class User extends React.Component {
+  render() {
+    return (
+      <div className="card-title">
+        <h5>
+          <a href={this.props.user.url}>{this.props.user.screen_name}</a> <span className="text-muted">@{this.props.user.name}</span>
+        </h5>
+      </div>
+    )
+  }
+}
+
+class Likes extends React.Component {
+  render () {
+    return (
+      <span>
+        <i className="material-icons">thumb_up</i> {this.props.likes}
+      </span>
+    )
+  }
+}
+
+class Retweets extends React.Component {
+  render() {
+    return (
+      <span>
+        <i className="material-icons">double_arrow</i> {this.props.retweets}
+      </span>
+    )
+  }
+}
+
+class TweetText extends React.component {
+  render () {
+    return (
+      <p className="card-text">{this.props.text}</p>
+    )
+  }
+}
+
 class Tweet extends React.Component {
 
   render() {
       return (
-        <div>
-          <h3>{this.props.tweet.user.screen_name}, <small></small></h3>
-          <p>{this.props.tweet.text}</p>
+        <div className="card">
+          <User user={this.props.tweet.user}/>
+          <TweetText text={this.props.tweet.text}/>
+          <div className="card-body">
+            <Likes likes={this.props.tweet.favorite_count}/> - <Retweets retweets={this.props.tweet.retweet_count}/>
+          </div>
         </div>
       );
   }

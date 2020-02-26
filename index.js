@@ -38,8 +38,8 @@ app.get('/react', (req, res) => {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
       <body>
-        <h1>Wow, react</h1>
         <div class="container">
+          <h1>Kanye Reacts to things.</h1>
           <div id="app"></div>
         </div>
         <script type="text/javascript" src="/main.js"></script>

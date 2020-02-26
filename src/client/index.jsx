@@ -20,7 +20,7 @@ class Likes extends React.Component {
   render () {
     return (
       <span>
-        <i className="material-icons">thumb_up</i> {this.props.likes}
+        <i className="material-icons md-18">thumb_up</i> {this.props.likes}
       </span>
     )
   }
@@ -30,7 +30,7 @@ class Retweets extends React.Component {
   render() {
     return (
       <span>
-        <i className="material-icons">double_arrow</i> {this.props.retweets}
+        <i className="material-icons md-18">double_arrow</i> {this.props.retweets}
       </span>
     )
   }
@@ -69,6 +69,8 @@ class App extends React.Component {
 
     return (
       <div>
+        <p>After a long day of work, Kanye West goes to his Kanye Nest to take his Kanye Rest. He wakes up feeling his Kanye Best. Then he’ll get Kanye Dressed on his Kanye Vest to go on a Kanye Quest. He goes to church and becomes Kanye Blessed, then to a hotel room to be a Kanye Guest. Then to school to take his Kanye Test. He forgot to brush his teeth. Did he run out of Kanye Crest? His neighbor stole it, what a Kanye Pest.</p>
+        <hr/>
         {tweetsList}
       </div>
     );

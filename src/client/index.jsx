@@ -9,7 +9,10 @@ class User extends React.Component {
     return (
       <div className="card-title">
         <h5>
-          <a href={this.props.user.url}>{this.props.user.screen_name}</a> <span className="text-muted">@{this.props.user.name}</span>
+          <img src={this.props.user.profile_image_url}/>
+          <a href={this.props.user.url}>{this.props.user.name}</a> 
+          <span className="text-muted">@{this.props.user.screen_name} - 
+           {this.props.date}</span>
         </h5>
       </div>
     )
@@ -50,7 +53,7 @@ class Tweet extends React.Component {
       return (
         <div className="card mb-2">
           <div className="card-body">
-            <User user={this.props.tweet.user}/>
+            <User user={this.props.tweet.user} date={this.props.tweet.created_at}/>
             <TweetText text={this.props.tweet.text}/>
           </div>
           <div className="card-footer">

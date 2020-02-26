@@ -47,6 +47,30 @@ class TweetText extends React.Component {
   }
 }
 
+class TweetMedia extends React.Component {
+  render() {
+
+    if (this.props.entities) {
+      if (this.props.entities.media) {
+        return (
+          <div>
+            <img className ="img-card-bottom mw-100" src={this.props.entities.media[0].media_url}/>
+          </div>
+        )
+      }
+      return (
+        <div></div>
+      )
+    }
+
+    return (
+      <div></div>
+    )
+
+    
+  }
+}
+
 class Tweet extends React.Component {
 
   render() {
@@ -59,6 +83,7 @@ class Tweet extends React.Component {
           <div className="card-footer">
             <Likes likes={this.props.tweet.favorite_count}/> <Retweets retweets={this.props.tweet.retweet_count}/>
           </div>
+          <TweetMedia entities={this.props.tweet.entities}/>
         </div>
       );
   }

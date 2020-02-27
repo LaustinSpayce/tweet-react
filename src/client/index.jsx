@@ -50,7 +50,11 @@ class Retweets extends React.Component {
 class TweetText extends React.Component {
   render() {
     return (
-      <p className="card-text">{this.props.text}</p>
+      <div>
+        <p className="card-text">
+          {this.props.text}
+        </p>
+      </div>
     )
   }
 }

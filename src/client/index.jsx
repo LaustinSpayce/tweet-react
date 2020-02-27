@@ -10,11 +10,18 @@ class User extends React.Component {
       <div className="card-title">
         <h5>
           <img src={this.props.user.profile_image_url}/>
-          <a href={this.props.user.url}>{this.props.user.name}</a> 
-          <span className="text-muted">@{this.props.user.screen_name} - 
-           {this.props.date}</span>
+          &nbsp;<a href={this.props.user.url}>{this.props.user.name}</a> 
+          <span className="text-muted"> @{this.props.user.screen_name}</span>
         </h5>
       </div>
+    )
+  }
+}
+
+class DateDisplay extends React.Component {
+  render() {
+    return( 
+      <span>Tweet # {this.props.index} <small>{this.props.date}</small></span>
     )
   }
 }
@@ -29,6 +36,7 @@ class Likes extends React.Component {
   }
 }
 
+// Expects a string or int or whatever named retweets to display
 class Retweets extends React.Component {
   render() {
     return (
@@ -40,7 +48,7 @@ class Retweets extends React.Component {
 }
 
 class TweetText extends React.Component {
-  render () {
+  render() {
     return (
       <p className="card-text">{this.props.text}</p>
     )
@@ -62,12 +70,9 @@ class TweetMedia extends React.Component {
         <div></div>
       )
     }
-
     return (
       <div></div>
-    )
-
-    
+    )   
   }
 }
 
@@ -77,7 +82,8 @@ class Tweet extends React.Component {
       return (
         <div className="card mb-2">
           <div className="card-body">
-            <User user={this.props.tweet.user} date={this.props.tweet.created_at}/>
+            <User user={this.props.tweet.user}/>
+            <DateDisplay date={this.props.tweet.created_at} index={this.props.index}/>
             <TweetText text={this.props.tweet.text}/>
           </div>
           <div className="card-footer">
@@ -91,14 +97,25 @@ class Tweet extends React.Component {
 
 class App extends React.Component {
   render() {
+
     let tweetsList = this.props.tweets.tweets.map( ( tweet, index ) => {
-      return <Tweet tweet={tweet}/>
+      return <Tweet tweet={tweet} index={index}/>
     })
+
+    let fruits = ["Bananaannanananaa", "Wow I'm apple my own", "wow", "cantankerous", "cats"]
+
+    let fruitList = fruits.map ((fruit) => {
+      return <li>{fruit}</li>
+    })
+
+    console.log(fruitList)
+    console.log(tweetsList)
 
     return (
       <div>
         <p>After a long day of work, Kanye West goes to his Kanye Nest to take his Kanye Rest. He wakes up feeling his Kanye Best. Then he’ll get Kanye Dressed on his Kanye Vest to go on a Kanye Quest. He goes to church and becomes Kanye Blessed, then to a hotel room to be a Kanye Guest. Then to school to take his Kanye Test. He forgot to brush his teeth. Did he run out of Kanye Crest? His neighbor stole it, what a Kanye Pest.</p>
         <hr/>
+        <ul>{fruitList}</ul>
         {tweetsList}
       </div>
     );
